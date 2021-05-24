@@ -1,3 +1,3 @@
 import MicroCalendar from './components/MicroCalendar';
 
-export { MicroCalendar };
+export default MicroCalendar;
