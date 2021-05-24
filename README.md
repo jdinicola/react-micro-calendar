@@ -4,11 +4,11 @@ Simple react calendar and date picker component
 
 ## Getting started
 
-### Installation
+### Installation
 
 `npm install react-micro-calendar`
 
-### Usage
+### Usage
 Here's an example of basic usage
 
 ``` jsx
@@ -29,12 +29,12 @@ const App = () => {
 export default App;
 ```
 
-### Options
+### Options
 
-#### Props
+#### Props
 
-|Name|Description|Default
-|----|----|----|----|
+|Name|Description|Default|
+|----|----|----|
 |locale|dates locale|`"default"`|
 |monthDisplayLength|Month length to display|`"long"`|
 |weekdays|Array with week days to display |`['L', 'M', 'X', 'J', 'V', 'S', 'D']`|
@@ -42,7 +42,7 @@ export default App;
 |nextButton|Next month button label|`">"`|
 |applySelectionButtonLabel|Apply date selection button label|`"OK"`|
 
-#### Callback
+#### Callback
 
 |Name|Description|Example|
 |----|----|----|
@@ -52,10 +52,10 @@ export default App;
 
 The calendar component has no built-in CSS, so it can be styled as you want.
 
-## License
+## License
 
 The MIT License.
 
-## Contributing
+## Contributing
 
 As this package is in a very basic form, all contributions are welcome 😅
