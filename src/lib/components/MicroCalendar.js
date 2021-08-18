@@ -63,7 +63,7 @@ const MicroCalendar = props => {
     }
 
     const isDaySelected = date => {
-        return date.setHours(0,0,0,0) >= startDate?.setHours(0,0,0,0) && date.setHours(0,0,0,0) <= endDate?.setHours(0,0,0,0);
+        return date.setHours(0,0,0,0) >= startDate?.setHours(0,0,0,0) && date.setHours(0,0,0,0) <= endDate?.setHours(23,59,59,0);
     }
 
     return (
