@@ -71,7 +71,14 @@ const MicroCalendar = props => {
     if (!startDate) {
       setStartDate(new Date(currentYear, currentMonth, currentDay));
     } else if (!endDate) {
-      setEndDate(new Date(currentYear, currentMonth, currentDay));
+      const selectedEndDate = new Date(currentYear, currentMonth, currentDay);
+
+      if (selectedEndDate < startDate) {
+        setEndDate(startDate);
+        setStartDate(selectedEndDate);
+      } else {
+        setEndDate(selectedEndDate);
+      }
     } else {
       setStartDate(new Date(currentYear, currentMonth, currentDay));
       setEndDate(null);
@@ -88,7 +95,7 @@ const MicroCalendar = props => {
   };
 
   const isDaySelected = date => {
-    return date.setHours(0, 0, 0, 0) >= (startDate === null || startDate === void 0 ? void 0 : startDate.setHours(0, 0, 0, 0)) && date.setHours(0, 0, 0, 0) <= (endDate === null || endDate === void 0 ? void 0 : endDate.setHours(0, 0, 0, 0));
+    return date.setHours(0, 0, 0, 0) >= (startDate === null || startDate === void 0 ? void 0 : startDate.setHours(0, 0, 0, 0)) && date.setHours(0, 0, 0, 0) <= ((endDate === null || endDate === void 0 ? void 0 : endDate.setHours(23, 59, 59, 0)) || (startDate === null || startDate === void 0 ? void 0 : startDate.setHours(23, 59, 59, 0)));
   };
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
