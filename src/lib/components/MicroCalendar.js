@@ -8,7 +8,7 @@ const MicroCalendar = props => {
         prevButton = '<',
         nextButton = '>',
         applySelectionButtonLabel = 'OK',
-        onDateSelected
+        onDateSelected,
     } = props;
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -41,6 +41,14 @@ const MicroCalendar = props => {
     const isToday = date => {
         const today = new Date();
         return date.getDate() === today.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear();
+    }
+
+    const isPast = date => {
+        return date.setHours(0,0,0,0) < new Date().setHours(0,0,0,0)
+    }
+
+    const isFuture = date => {
+        return date.setHours(0,0,0,0) > new Date().setHours(0,0,0,0)
     }
 
     const handleDateSelection = params => {
@@ -99,6 +107,8 @@ const MicroCalendar = props => {
                                             const currentDay = currentDayOfMonth;
                                             const date = new Date(currentYear, currentMonth, currentDay);
                                             isToday(date) && dayClassList.push('today');
+                                            isPast(date) && dayClassList.push('past');
+                                            isFuture(date) && dayClassList.push('future');
                                             isDaySelected(date) && dayClassList.push('selected');
                                             return (
                                                 <td
