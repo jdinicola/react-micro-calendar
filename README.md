@@ -41,6 +41,10 @@ export default App;
 |prevButton|Prev month button label|`"<"`|
 |nextButton|Next month button label|`">"`|
 |applySelectionButtonLabel|Apply date selection button label|`"OK"`|
+|selectedClassName|Class name for selected day(s)|`"selected"`|
+|todayClassName|Class name today|`"today"`|
+|pastClassName|Class name for past days|`"past"`|
+|futureClassName|Class name for future days|`"future"`|
 
 #### Callback
 
