@@ -8,7 +8,11 @@ const MicroCalendar = props => {
         prevButton = '<',
         nextButton = '>',
         applySelectionButtonLabel = 'OK',
-        onDateSelected
+        onDateSelected,
+        todayClassName = 'today',
+        pastClassName = 'past',
+        futureClassName = 'future',
+        selectedClassName = 'selected',
     } = props;
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -41,6 +45,14 @@ const MicroCalendar = props => {
     const isToday = date => {
         const today = new Date();
         return date.getDate() === today.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear();
+    }
+
+    const isPast = date => {
+        return date.setHours(0,0,0,0) < new Date().setHours(0,0,0,0)
+    }
+
+    const isFuture = date => {
+        return date.setHours(0,0,0,0) > new Date().setHours(0,0,0,0)
     }
 
     const handleDateSelection = params => {
@@ -98,8 +110,10 @@ const MicroCalendar = props => {
                                             currentDayOfMonth++;
                                             const currentDay = currentDayOfMonth;
                                             const date = new Date(currentYear, currentMonth, currentDay);
-                                            isToday(date) && dayClassList.push('today');
-                                            isDaySelected(date) && dayClassList.push('selected');
+                                            isToday(date) && dayClassList.push(todayClassName);
+                                            isPast(date) && dayClassList.push(pastClassName);
+                                            isFuture(date) && dayClassList.push(futureClassName);
+                                            isDaySelected(date) && dayClassList.push(selectedClassName);
                                             return (
                                                 <td
                                                     key={j}
