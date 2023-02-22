@@ -36,7 +36,7 @@ const MicroCalendar = props => {
   const weeks = Array.from({
     length: 6
   }, i => i);
-  const startOfMonth = new Date(currentYear, currentMonth).getDay() - 1;
+  const startOfMonth = new Date(currentYear, currentMonth).getDay() === 0 ? 6 : new Date(currentYear, currentMonth).getDay() - 1;
   const daysOnMonth = 32 - new Date(currentYear, currentMonth, 32).getDate();
   let currentDayOfMonth = 0;
   const [startDate, setStartDate] = (0, _react.useState)(null);
